@@ -1,0 +1,15 @@
+{
+	"autodeskProduct":	"Fusion",
+	"type":	"addin",
+	"id":	"c7766c33-d7e6-4fef-b141-9018de20d36f",
+	"author":	"phos.systems",
+	"description":	{
+		"":	"Generates parametric Luer fittings (slip and lock, male and female) per ISO 594 / 80369-7. The add-in does not collect any user data. Privacy policy: privacy-policy.html (shipped with this add-in)."
+	},
+	"version":	"1.1.0",
+	"runOnStartup":	false,
+	"supportedOS":	"windows|mac",
+	"editEnabled":	true,
+	"iconFilename":	"AddInIcon.png",
+	"privacyPolicyFilename":	"privacy-policy.html"
+}
