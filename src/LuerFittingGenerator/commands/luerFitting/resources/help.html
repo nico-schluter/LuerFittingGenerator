@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Luer Fitting Generator — Help</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    max-width: 720px;
+    margin: 2em auto;
+    padding: 0 1.5em;
+    color: #222;
+    line-height: 1.55;
+  }
+  h1 { margin-bottom: 0.2em; }
+  h2 { margin-top: 1.8em; }
+  ol li, ul li { margin-bottom: 0.5em; }
+  code { background: #f4f4f4; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+  a { color: #0479B3; }
+</style>
+</head>
+<body>
+
+<h1>Luer Fitting Generator</h1>
+
+<p>
+  Generates parametric Luer fittings &mdash; slip and lock, male and female &mdash;
+  sized per the ISO&nbsp;594 / 80369-7 6% Luer taper standard. Adjustable
+  through-bore diameter and diametral clearance for press-fit tuning.
+</p>
+
+<h2>How to use</h2>
+
+<ol>
+  <li>
+    <strong>Pick a centre point.</strong> Valid selections are sketch points,
+    construction points, BRep vertices, or circular BRep edges.
+    <ul>
+      <li>If you pick a sketch point, the fitting axis is taken from the sketch's reference plane &mdash; you don't need to also pick a plane.</li>
+      <li>For all other selection types, also pick a plane or planar face for the fitting axis.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Pick a plane or face</strong> if needed (see above).
+  </li>
+  <li>
+    <strong>Choose the fitting type</strong> from the dropdown:
+    <ul>
+      <li><strong>Male Slip / Male Lock</strong> &mdash; protrudes from the body.</li>
+      <li><strong>Female Slip / Female Lock</strong> &mdash; cylindrical boss with the taper sunk into it; opens outward.</li>
+      <li><strong>Male Lock (internal) / Female Slip (internal)</strong> &mdash; cut into an existing body, useful for embedding the fitting in a part wall (e.g. manifolds, adapter blocks).</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Set the through-bore diameter</strong> for male variants. The bore is a
+    straight cylinder concentric with the taper. Default 2.25&nbsp;mm. Hidden for
+    female variants &mdash; the bore there is the female taper itself.
+  </li>
+  <li>
+    <strong>Adjust the diametral clearance</strong> if needed. Positive values shrink
+    male tapers (or enlarge female tapers) for a looser fit; negative values produce
+    a tighter fit. Default is 0&nbsp;mm &mdash; exact ISO geometry.
+  </li>
+  <li>
+    <strong>Press OK.</strong> The fitting commits as a single timeline group; one
+    undo removes the entire feature.
+  </li>
+</ol>
+
+<p>
+  The status line at the bottom of the dialog explains why OK is greyed out when
+  inputs would produce broken geometry, or when an internal variant is placed
+  away from any body.
+</p>
+
+<h2>Tips</h2>
+
+<ul>
+  <li>
+    For 3D-printed parts, start with the default zero clearance and a known-good
+    test print, then dial clearance positive (looser) or negative (tighter) until
+    the mating fitting slides on with the resistance you want.
+  </li>
+  <li>
+    For lab fixtures, use the <em>internal</em> variants to embed the fitting in
+    the wall of an existing part &mdash; handy for manifolds and adapter blocks.
+  </li>
+  <li>
+    Multiple fittings can be added to one part by running the command repeatedly.
+    Each becomes its own timeline group.
+  </li>
+</ul>
+
+<h2>Troubleshooting</h2>
+
+<p>If the OK button is greyed out, the status line at the bottom of the dialog will explain why. Common cases:</p>
+
+<ul>
+  <li><strong>&ldquo;Hole too large for taper.&rdquo;</strong> Reduce the hole diameter or the diametral clearance.</li>
+  <li><strong>&ldquo;Clearance too large.&rdquo;</strong> / <strong>&ldquo;Clearance too negative.&rdquo;</strong> Pull the value back toward 0&nbsp;mm.</li>
+  <li><strong>&ldquo;Hole must be &gt; 0.&rdquo;</strong> The through-bore needs a positive diameter.</li>
+  <li><strong>&ldquo;Place fitting on or near a body.&rdquo;</strong> The internal variants need an existing body to cut into. Move the centre point onto or into the body, or switch to a non-internal variant.</li>
+</ul>
+
+</body>
+</html>

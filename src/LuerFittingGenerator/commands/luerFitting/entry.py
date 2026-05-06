@@ -79,6 +79,11 @@ def command_created(args: adsk.core.CommandCreatedEventArgs):
     futil.log(f'{CMD_NAME} Command Created Event')
 
     cmd = args.command
+
+    help_file = os.path.join(ICON_FOLDER, 'help.html')
+    if os.path.exists(help_file):
+        cmd.helpFile = help_file
+
     inputs = cmd.commandInputs
 
     si_origin = inputs.addSelectionInput('SIOrigin', 'Point', 'Select Center Point')
