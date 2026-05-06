@@ -1,10 +1,10 @@
 # LuerFittingGenerator
 
-Add-In for Autodesk Fusion 360.  
-Generates parametric Luer fittings — slip and lock, male and female — per the ISO 594 / 80369-7 6% Luer taper.  
-Adjustable through-bore and diametral clearance for press-fit tuning.
+![](docs/luer-syringe-render.png)
 
-Originally created by Nico Schlüter; this repository continues the original project. The legacy single-file add-in is preserved under [docs/LuerFittingGenerator/](docs/LuerFittingGenerator/) for reference.
+Add-In for Autodesk Fusion 360.  
+Generates parametric Luer fittings, supported types slip and lock, male and female — per the ISO 594 / 80369-7 6% Luer taper.  
+Adjustable through-bore and diametral clearance for press-fit tuning.
 
 # Use
 
@@ -49,7 +49,7 @@ The status line at the bottom of the dialog explains why OK is greyed out when i
 - Refreshed add-in icon and added a toolbar tool-clip image
 - Ported to phos.systems' standardised add-in framework — no behaviour change in normal use, but considerably easier to maintain going forward
 
-## 1.0 — Original release by Nico Schlüter
+## 1.0 — Original release
 
 - Six fitting types: Male and Female × Slip and Lock, plus two "internal" variants
 - ISO 594 / 80369-7 6% Luer taper geometry
